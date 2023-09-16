@@ -2,6 +2,7 @@ import { Fragment, useEffect, useState } from 'react';
 import { Container, Table, Button, Card, Form } from 'react-bootstrap';
 import HeaderComponent from '../../components/header_component/HeaderComponent';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const URL_API = 'http://localhost:8000';
 
@@ -12,6 +13,30 @@ const UserPage = () => {
       last_name: '',
       username: ''
     });
+    const [ID, setID] = useState(0);
+
+    useEffect(() => {
+      getUser();
+    }, [])
+
+    const getUser = () => {
+      axios.get(`${URL_API}/users`)
+        .then((res) => {
+          setUser(res.data);
+        })
+        .catch((err) => {
+          console.log('err')
+          console.log(err)
+        })  
+    }
+
+    const removeFormUser = () => {
+      setData({
+        first_name: '',
+        last_name: '',
+        username: ''
+      })
+    }
 
     const handleInputChange = (e) => {
       const { name, value } = e.target;
@@ -25,19 +50,40 @@ const UserPage = () => {
       axios.post(`${URL_API}/users`, data)
       .then((res) => {
         setUser([...user, res.data]);
+        removeFormUser();
+        Swal.fire("Berhasil", "Berhasil tambah data", "success")
       })
     }
 
-    useEffect(() => {
-      axios.get(`${URL_API}/users`)
-        .then((res) => {
-          setUser(res.data);
+    const handleDelete = (userId) => {
+      axios.delete(`${URL_API}/users/${userId}`)
+      .then(() => {
+        getUser();
+        Swal.fire("Berhasil", "Berhasil hapus data", "success")
+      })
+    }
+
+    const handleEdit = (userId) => {
+      axios.get(`${URL_API}/users/${userId}`)
+      .then((res) => {
+        const resData = res.data;
+        setData({
+          first_name: resData.first_name,
+          last_name: resData.last_name,
+          username: resData.username
         })
-        .catch((err) => {
-          console.log('err')
-          console.log(err)
-        })    
-    }, [])
+        setID(userId)
+      })
+    }
+
+    const handleEditSubmit = () => {
+      axios.put(`${URL_API}/users/${ID}`, data)
+      .then(() => {
+        getUser();
+        removeFormUser();
+        Swal.fire("Berhasil", "Berhasil ubah data", "success")
+      })
+    }
 
     return (
     <Fragment>
@@ -52,6 +98,7 @@ const UserPage = () => {
                   <Form.Control 
                     name="first_name" 
                     placeholder="Enter First Name"
+                    value={data.first_name}
                     onChange={handleInputChange} 
                   />
                 </Form.Group>
@@ -59,6 +106,7 @@ const UserPage = () => {
                   <Form.Label>Last Name</Form.Label>
                   <Form.Control 
                     name="last_name" 
+                    value={data.last_name}
                     placeholder="Enter Last Name" 
                     onChange={handleInputChange} 
                     />
@@ -67,6 +115,7 @@ const UserPage = () => {
                   <Form.Label>Username</Form.Label>
                   <Form.Control 
                     name="username" 
+                    value={data.username}
                     placeholder="Enter Username" 
                     onChange={handleInputChange} 
                   />
@@ -74,7 +123,11 @@ const UserPage = () => {
               </Form>
             </Card.Body>
             <Card.Footer>
-              <Button onClick={handleSubmit}>Submit</Button>
+              <Button 
+                onClick={ID > 0 ? handleEditSubmit : handleSubmit}
+              >
+                Submit
+              </Button>
             </Card.Footer>
           </Card>
           <Card className='mt-5'>
@@ -87,6 +140,7 @@ const UserPage = () => {
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Username</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -97,6 +151,20 @@ const UserPage = () => {
                         <td>{item.first_name}</td>
                         <td>{item.last_name}</td>
                         <td>{item.username}</td>
+                        <td>
+                          <Button 
+                            variant='danger' 
+                            onClick={() => handleDelete(item.id)}
+                          >
+                            Delete
+                          </Button>
+                          <Button 
+                            variant='primary' 
+                            onClick={() => handleEdit(item.id)}
+                          >
+                            Edit
+                          </Button>
+                        </td>
                       </tr>
                     ))
                   }

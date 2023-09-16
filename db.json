@@ -18,28 +18,10 @@
   },
   "users": [
     {
-      "id": 1,
-      "first_name": "Ilham",
-      "last_name": "Marjuki",
-      "username": "@ilhammarjuki"
-    },
-    {
-      "id": 2,
-      "first_name": "Khoirul",
-      "last_name": "Anam",
-      "username": "@khoirulanam"
-    },
-    {
-      "id": 3,
-      "first_name": "Budi",
-      "last_name": "Setiawan",
-      "username": "@budisetiawan"
-    },
-    {
-      "first_name": "First Name",
-      "last_name": "Last Name",
-      "username": "Username",
-      "id": 4
+      "first_name": "test2",
+      "last_name": "test2",
+      "username": "test",
+      "id": 1
     }
   ]
 }
