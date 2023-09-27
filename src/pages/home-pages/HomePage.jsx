@@ -1,5 +1,5 @@
 import { Fragment } from 'react';
-import HeaderComponent from '../../components/header_component/HeaderComponent';
+import HeaderComponent from '../../components/header-components/HeaderComponent';
 
 const HomePage = () => {
     return (

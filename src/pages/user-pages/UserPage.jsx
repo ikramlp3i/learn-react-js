@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Container, Table, Button, Card, Form } from 'react-bootstrap';
-import HeaderComponent from '../../components/header_component/HeaderComponent';
+import HeaderComponent from '../../components/header-components/HeaderComponent';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
@@ -88,7 +88,7 @@ const UserPage = () => {
     return (
     <Fragment>
         <HeaderComponent />
-        <Container>
+        <Container className='pt-3'>
           <Card>
             <Card.Header>Create User</Card.Header>
             <Card.Body>

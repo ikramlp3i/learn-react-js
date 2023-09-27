@@ -9,6 +9,7 @@ const HeaderComponent = () => {
             <Nav className="me-auto">
             <Nav.Link as={NavLink} to={'/'}>Home</Nav.Link>
             <Nav.Link as={NavLink} to={'/user'}>User</Nav.Link>
+            <Nav.Link as={NavLink} to={'/user-dialog'}>User Dialog</Nav.Link>
             </Nav>
         </Container>
     </Navbar>
