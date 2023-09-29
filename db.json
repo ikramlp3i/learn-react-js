@@ -18,10 +18,22 @@
   },
   "users": [
     {
-      "first_name": "Ikram",
-      "last_name": "Fadhal",
-      "username": "Ikram Fadhal Oke",
-      "id": 1
+      "id": 3,
+      "first_name": "ikram 3",
+      "last_name": "ikram 3",
+      "username": "ikram 3"
+    },
+    {
+      "first_name": "aav",
+      "last_name": "bbc",
+      "username": "ccb",
+      "id": 6
+    },
+    {
+      "first_name": "ccdd",
+      "last_name": "ccdd",
+      "username": "ccdd",
+      "id": 7
     }
   ]
 }

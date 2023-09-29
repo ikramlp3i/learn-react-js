@@ -4,6 +4,9 @@ import UserPage from './pages/user-pages/UserPage.jsx'
 import HomePage from './pages/home-pages/HomePage.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import UserDialogPage from './pages/user-dialog-pages/UserDialogPage';
+import UserReduxDialogPage from './pages/user-redux-dialog-pages/UserReduxDialogPage';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 
 const router = createBrowserRouter([
   {
@@ -17,12 +20,18 @@ const router = createBrowserRouter([
   {
     path: "/user-dialog",
     element: <UserDialogPage />
+  },
+  {
+    path: "/user-redux-dialog",
+    element: <UserReduxDialogPage />
   }
 ])
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <Provider store={ store }>
+      <RouterProvider router={router} />
+    </Provider>
   );
 }
 

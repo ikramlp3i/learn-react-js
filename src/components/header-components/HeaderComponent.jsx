@@ -10,6 +10,7 @@ const HeaderComponent = () => {
             <Nav.Link as={NavLink} to={'/'}>Home</Nav.Link>
             <Nav.Link as={NavLink} to={'/user'}>User</Nav.Link>
             <Nav.Link as={NavLink} to={'/user-dialog'}>User Dialog</Nav.Link>
+            <Nav.Link as={NavLink} to={'/user-redux-dialog'}>User Redux Dialog</Nav.Link>
             </Nav>
         </Container>
     </Navbar>
