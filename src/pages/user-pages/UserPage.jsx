@@ -1,8 +1,8 @@
 import { Fragment, useEffect, useState } from 'react';
 import { Container, Table, Button, Card, Form } from 'react-bootstrap';
-import HeaderComponent from '../../components/header-components/HeaderComponent';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+import HeaderComponent from '../../components/header-components/HeaderComponent';
 
 const URL_API = 'http://localhost:8000';
 

@@ -35,5 +35,19 @@
       "username": "ccdd",
       "id": 7
     }
+  ],
+  "products": [
+    {
+      "name": "test",
+      "image_url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D",
+      "description": "Desc of table",
+      "id": 3
+    },
+    {
+      "name": "Computer",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQa9-nU9073RvVpcyLfWVUcUQr21ETSuKnxrg&usqp=CAU",
+      "description": "Desc",
+      "id": 4
+    }
   ]
 }

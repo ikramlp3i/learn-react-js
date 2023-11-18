@@ -7,6 +7,8 @@ import UserDialogPage from './pages/user-dialog-pages/UserDialogPage';
 import UserReduxDialogPage from './pages/user-redux-dialog-pages/UserReduxDialogPage';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import ProductReduxDialogPage from './pages/product-redux-dialog-pages/ProductReduxDialogPage';
+import ProductDetailPage from './pages/product-pages/ProductDetailPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +26,19 @@ const router = createBrowserRouter([
   {
     path: "/user-redux-dialog",
     element: <UserReduxDialogPage />
-  }
+  },
+  {
+    path: "/product-redux-dialog",
+    element: <ProductReduxDialogPage />
+  },
+  {
+    path: "/product/:id",
+    element: <ProductDetailPage />
+  },
+  // {
+  //   path: "*",
+  //   element: <div>Page not found</div>
+  // }
 ])
 
 function App() {
