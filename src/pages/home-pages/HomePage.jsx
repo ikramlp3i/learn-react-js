@@ -1,6 +1,6 @@
 import { Fragment, useEffect } from 'react';
 import HeaderComponent from '../../components/header-components/HeaderComponent';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Image, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getProductsAsync } from '../../redux/services/products';
 import { getProducts } from '../../redux/actions/products';
@@ -24,8 +24,11 @@ const HomePage = () => {
             <HeaderComponent />
 
             <Container>
-                <h1>Banner</h1>
+                <div className='pb-4'>
+                    <Image width={'100%'} src="https://hanwhavisionamerica.b-cdn.net/wp-content/uploads/2023/06/Product_Category_By_Series_Header_BannersV3Wisenet-HD.jpg" fluid />
+                </div>
                 <div>
+                    <h4>Our Products</h4>
                     <Row>
                         {
                             products.map((product, index) => (

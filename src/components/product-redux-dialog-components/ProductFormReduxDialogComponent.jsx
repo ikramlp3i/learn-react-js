@@ -118,7 +118,7 @@ const ProductCreateReduxDialogComponent = ({ isOpen, onClose }) => {
                 onChange={handleChange}
               />
               <Form.Control.Feedback type="invalid">
-                Name is required
+                Image URL is required
               </Form.Control.Feedback>
             </Form.Group>
             <Form.Group>

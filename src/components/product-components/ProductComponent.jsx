@@ -9,12 +9,9 @@ function ProductComponent(props) {
     }
     return (
         <Card style={{ cursor: 'pointer' }} onClick={() => redirectTo('/product/'+props.data?.id)}>
-            <Card.Img variant="top" src={props.data.image_url} />
+            <Card.Img height={'150px'} variant="top" src={props.data.image_url} />
             <Card.Body>
-                <Card.Title>{ props.data.name }</Card.Title>
-                <Card.Text>
-                    {props.data.description}
-                </Card.Text>
+                <Card.Subtitle style={{textAlign: 'center'}}>{ props.data.name }</Card.Subtitle>
             </Card.Body>
         </Card>
     );
